@@ -1,6 +1,6 @@
 package com.example.jenkins;
 
-
+import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -8,17 +8,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class SpringJenkinsApplication {
-	
-	private static final Logger logger =
+
+    private static final Logger logger =
             LoggerFactory.getLogger(SpringJenkinsApplication.class);
-	
-	public  init() {
-		logger.info("Apllication started...");
-	}
 
-	public static void main(String[] args) {
-		logger.info("Applicatin executed..");
-		SpringApplication.run(SpringJenkinsApplication.class, args);
-	}
+    @PostConstruct
+    public void init() {
+        logger.info("Application started...");
+    }
 
+    public static void main(String[] args) {
+        logger.info("Application execution started...");
+        SpringApplication.run(SpringJenkinsApplication.class, args);
+    }
 }
