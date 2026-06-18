@@ -17,12 +17,13 @@ pipeline{
                bat "mvn clean package";
             }
         }
-*/
+
       stage("Docker Build"){
            steps{
                bat "docker build -t app:latest .";
             }
         }
+*/
       stage("Deploy"){
            steps{
                bat "kubectl apply -f deployment.yaml";
