@@ -6,5 +6,15 @@ pipeline{
                 git credentialsId: 'af14a470-bdb8-4c7d-9e09-0540f5009f05', url: 'https://github.com/roshanjsrpar/spring-jenkins'
             }
         }
+      stage("Test"){
+           steps{
+               bat "mvn test";
+            }
+        }
+      stage("Package"){
+           steps{
+               bat "mvn clean package";
+            }
+        }
     }
 }
